@@ -1,4 +1,4 @@
-const 정답 = "APPLE";
+
 
 let attempts = 0;
 let index = 0;
@@ -25,8 +25,12 @@ function appStart() {
     index = 0;
   };
 
-  const handleEnterKey = () => {
+  const handleEnterKey = async() => {
     let 맞은_갯수 = 0;
+    const 응답 = await fetch('/answer');
+    const 정답 =  await 응답.json();
+    console.log(정답);
+ 
 
     for (let i = 0; i < 5; i++) {
       const block = document.querySelector(
